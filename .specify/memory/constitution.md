@@ -1,50 +1,72 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report
+- Version change: 1.0.0 -> 1.0.1
+- Modified items: Translated file to English; updated Technical Restrictions to specify TypeScript, Tailwind and shadcn
+- Added sections: none (content translated and refined)
+- Removed sections: none
+- Templates reviewed:
+  - .specify/templates/plan-template.md ✅ aligned
+  - .specify/templates/spec-template.md ✅ aligned
+  - .specify/templates/tasks-template.md ✅ aligned (tests optional — policy unchanged)
+  - .specify/templates/checklist-template.md ✅ aligned
+- Follow-up TODOs: none
+-->
+
+# my-spec-kit-project Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### Principle I: Static-First Web (STATIC-FIRST)
+The application is a static website built with Next.js (Static Generation / ISR when necessary).
+All pages and routes MUST prefer static pre-rendering; use of Server-Side Rendering (SSR) or dynamic APIs
+must be justified by a clear business need. This is a MUST: favoring SSG/ISR reduces complexity,
+cost, and improves performance.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### Principle II: Performance and Accessibility (PERFORMANCE & A11Y)
+The project MUST follow best practices for performance (Core Web Vitals) and accessibility (WCAG AA as
+the minimum target). Library and resource choices MUST prioritize bundle size and load time impact.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### Principle III: Code Style and Quality (NEXTJS GUIDELINES)
+Code MUST follow Next.js and TypeScript guidelines: use the App Router where applicable, clear routes and
+layouts, small composable components without unexpected side effects. ESLint and Prettier/formatter MUST
+be integrated and enforced in PRs.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### Principle IV: Simplicity and Minimal Dependencies (SIMPLICITY)
+Avoid unnecessary dependencies and heavy frameworks for simple functionality. Every external dependency
+MUST include an explicit justification in the PR (benefit vs maintenance cost). Prefer platform-native
+solutions (Next.js, native CSS, web APIs) over large abstractions.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### Principle V: Tests Optional — Not Required (NO_TESTS_REQUIRED)
+Automated tests are explicitly NOT REQUIRED for this project: verification focuses on code reviews, linters,
+and manual QA. Automated tests may be added at the team's discretion but are not a condition for merging
+or deploying in this repository.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Technical Restrictions
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+- Primary stack: Next.js with TypeScript, Tailwind CSS, and `shadcn/ui` for component patterns. Tailwind and
+  shadcn MUST be used for styling and UI primitives unless a strong justification is provided.
+- Use static hosting (Vercel, Netlify, S3+CDN, etc.); no additional server runtime is required unless explicitly justified.
+- Optimize images and fonts using Next.js native utilities (`next/image`, `next/font`) where appropriate.
+- Do not introduce additional server runtimes or heavy backend frameworks without an approved justification.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+## Development Workflow
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+- Pull Requests: all PRs MUST pass linters and auto-formatting (ESLint, Prettier).
+- Reviews: at least one approving code review is required before merge; reviewers verify:
+  - adherence to principles (static-first, performance, accessibility),
+  - absence of unnecessary dependencies,
+  - changes do not negatively impact bundle size.
+- Continuous integration: running linters and builds in CI is recommended; tests remain optional per project policy.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+- The Constitution is the project's governing document. Amendments require a PR that includes:
+  1) Proposed text and the section to change; 2) Rationale and expected impact; 3) Migration plan if applicable.
+- Approval: an amendment MUST be approved by at least one repository maintainer and merged into the `main` branch.
+- Constitution versioning: use Semantic Versioning for the document:
+  - MAJOR: incompatible governance changes or removal/redefinition of principles.
+  - MINOR: addition of principles or substantial expansions.
+  - PATCH: wording fixes, formatting, or minor clarifications.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.1 | **Ratified**: 2025-11-19 | **Last Amended**: 2025-11-19
+
