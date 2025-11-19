@@ -1,7 +1,7 @@
 <!--
 Sync Impact Report
-- Version change: 1.0.0 -> 1.0.1
-- Modified items: Translated file to English; updated Technical Restrictions to specify TypeScript, Tailwind and shadcn
+- Version change: 1.0.1 -> 1.0.2
+- Modified items: Remove Prettier references — ESLint-only policy; wording clarified
 - Added sections: none (content translated and refined)
 - Removed sections: none
 - Templates reviewed:
@@ -28,8 +28,7 @@ the minimum target). Library and resource choices MUST prioritize bundle size an
 
 ### Principle III: Code Style and Quality (NEXTJS GUIDELINES)
 Code MUST follow Next.js and TypeScript guidelines: use the App Router where applicable, clear routes and
-layouts, small composable components without unexpected side effects. ESLint and Prettier/formatter MUST
-be integrated and enforced in PRs.
+layouts, small composable components without unexpected side effects. ESLint MUST be integrated and enforced in PRs.
 
 ### Principle IV: Simplicity and Minimal Dependencies (SIMPLICITY)
 Avoid unnecessary dependencies and heavy frameworks for simple functionality. Every external dependency
@@ -51,7 +50,7 @@ or deploying in this repository.
 
 ## Development Workflow
 
-- Pull Requests: all PRs MUST pass linters and auto-formatting (ESLint, Prettier).
+- Pull Requests: all PRs MUST pass linting (ESLint) and follow the project's formatting rules (editorconfig or ESLint autofix).
 - Reviews: at least one approving code review is required before merge; reviewers verify:
   - adherence to principles (static-first, performance, accessibility),
   - absence of unnecessary dependencies,
@@ -68,5 +67,5 @@ or deploying in this repository.
   - MINOR: addition of principles or substantial expansions.
   - PATCH: wording fixes, formatting, or minor clarifications.
 
-**Version**: 1.0.1 | **Ratified**: 2025-11-19 | **Last Amended**: 2025-11-19
+**Version**: 1.0.2 | **Ratified**: 2025-11-19 | **Last Amended**: 2025-11-19
 
